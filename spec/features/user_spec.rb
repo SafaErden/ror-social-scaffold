@@ -2,23 +2,16 @@ require 'rails_helper'
 
 RSpec.feature 'User', type: :feature do
   before :each do
-    @user = User.first
+    @user = User.create(name: 'User', email: 'user@mail.com', password: 'asdqwe')
   end
 
-  # it 'Should log in' do
-  #   visit new_user_session_path
-  #   fill_in 'Email', with: @user.email
-  #   fill_in 'Password', with: @user.password
-  #   click_button 'commit'
-  #   # click_on 'Events'
-  #   # click_on 'New event'
-  #   # fill_in 'title', with: 'New Event'
-  #   # fill_in 'description', with: 'Some Description'
-  #   # fill_in 'date', with: '20.07.2020'
-  #   # click_button 'commit'
-  #   expect(page).to have_content('Recent posts')
-  #   # expect(page).to have_content('Creator')
-  # end
+  it 'Should log in' do
+    visit new_user_session_path
+    fill_in 'Email', with: 'user@mail.com'
+    fill_in 'Password', with: 'asdqwe'
+    click_button 'commit'
+    expect(page).to have_content('Recent posts')
+  end
 
   it 'Should sign up' do
     visit new_user_registration_path
