@@ -22,8 +22,5 @@ class FriendshipsController < ApplicationController
     else
       redirect_to users_path, notice: 'Something went wrong.'
     end
-
   end
-
-
 end
