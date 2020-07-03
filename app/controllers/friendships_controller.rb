@@ -16,6 +16,8 @@ class FriendshipsController < ApplicationController
     @user = User.find_by(id: params[:user])
 
     if current_user.confirm_friend(@user)
+      @friendship = Friendship.new(user_id: current_user.id, friend_id: @user.id, confirmed: true)
+      @friendship.save
       redirect_to users_path, notice: "You are now friends with #{@user.name}."
     else
       redirect_to users_path, notice: 'Something went wrong.'
