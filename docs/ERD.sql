@@ -20,18 +20,7 @@ CREATE TABLE `FriendShip` (
   KEY `FK` (`UserId`, `FriendId`)
 );
 
-CREATE TABLE `PostComment` (
-  `Id` <type>,
-  `UserId` <type>,
-  `PostId` <type>,
-  `Content` <type>,
-  `CreatedAt` <type>,
-  `UpdatedAt` <type>,
-  PRIMARY KEY (`Id`),
-  KEY `FK` (`UserId`, `PostId`)
-);
-
-CREATE TABLE `LikeDislike` (
+CREATE TABLE `Like` (
   `Id` <type>,
   `PostId` <type>,
   `UserId` <type>,
@@ -52,5 +41,16 @@ CREATE TABLE `User` (
   `CreatedAt` <type>,
   `UpdatedAt` <type>,
   PRIMARY KEY (`Id`)
+);
+
+CREATE TABLE `Comment` (
+  `Id` <type>,
+  `UserId` <type>,
+  `PostId` <type>,
+  `Content` <type>,
+  `CreatedAt` <type>,
+  `UpdatedAt` <type>,
+  PRIMARY KEY (`Id`),
+  KEY `FK` (`UserId`, `PostId`)
 );
 
