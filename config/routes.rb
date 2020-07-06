@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:index, :show]
+
+  namespace :friendships do
+    get 'friendship_request'
+    get 'confirm'
+  end
+
   resources :posts, only: [:index, :create] do
     resources :comments, only: [:create]
     resources :likes, only: [:create, :destroy]
