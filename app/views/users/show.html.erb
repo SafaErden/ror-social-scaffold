@@ -1,9 +1,26 @@
 <section class="user-section">
-  <h2><%= "Name: #{@user.name}" %></h2>
+  <h2><%= "Name: #{@user.name}" %>
+      <% if current_user.friend?(@user) %>
+        <span  class="confirmed"> Confirmed Friendship</span>
+      <% end %>
+      <% unless (current_user.id == @user.id) || (current_user.friend?@user) %>
+        <% if  (current_user.pending_friends.include?@user) %>
+          <span  class="pending">  Pending Request </span>
+        <% elsif (current_user.friend_requests.include?@user) %>
+          <%= link_to "Accept", friendships_confirm_path(:user => @user.id), class: 'btn'%>
+        <% elsif current_user.friend?(@user) %>
+          Friends
+        <% else  %>
+          <%= link_to "Invite to Friendship", friendships_friendship_request_path(:user => @user.id), class:"btn" %>
+        <% end %>
+      <% end %>
+  
+  
+  </h2>
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
       <%= render @posts %>
-    </ul>
+    </ul>  
   </article>
 </section>
