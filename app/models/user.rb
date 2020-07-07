@@ -38,9 +38,8 @@ class User < ApplicationRecord
     friendship.save
   end
 
-  # rubocop:disable Lint/ShadowingOuterLocalVariable
   def reject_friend(friendship)
-    friendship.each{|f| f.destroy}
+    friendship.each(&:destroy)
   end
 
   # rubocop:enable Lint/ShadowingOuterLocalVariable

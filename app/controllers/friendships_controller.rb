@@ -26,7 +26,7 @@ class FriendshipsController < ApplicationController
 
   def reject
     @user = User.find_by(id: params[:user])
-    @friendship=Friendship.where("user_id = ? AND friend_id = ?", @user.id, current_user.id)
+    @friendship = Friendship.where('user_id = ? AND friend_id = ?', @user.id, current_user.id)
     if current_user.reject_friend(@friendship)
       redirect_to users_path, notice: "You rejected friendship with #{@user.name}."
     else
