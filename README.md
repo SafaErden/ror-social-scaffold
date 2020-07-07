@@ -9,7 +9,8 @@
 
 ## Live Demo
 
-TBA
+[Social Friends](https://socialfriends.herokuapp.com/ )
+
 
 
 ## Getting Started
