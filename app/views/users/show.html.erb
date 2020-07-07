@@ -8,6 +8,7 @@
           <span  class="pending">  Pending Request </span>
         <% elsif (current_user.friend_requests.include?@user) %>
           <%= link_to "Accept", friendships_confirm_path(:user => @user.id), class: 'btn'%>
+          <%= link_to "Reject", friendships_reject_path(:user => user.id), class: 'btn-reject'%>
         <% elsif current_user.friend?(@user) %>
           Friends
         <% else  %>

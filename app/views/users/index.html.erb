@@ -10,13 +10,12 @@
       <% if current_user.friend?(user) %>
         <span  class="confirmed"> Confirmed Friendship</span>
       <% end %>
-
-
       <% unless (current_user.id == user.id) || (current_user.friend?user) %>
       <% if  (current_user.pending_friends.include?user) %>
         <span  class="pending">  Pending Request </span>
       <% elsif (current_user.friend_requests.include?user) %>
-      <%= link_to "Accept", friendships_confirm_path(:user => user.id), class: 'btn'%>
+        <%= link_to "Accept", friendships_confirm_path(:user => user.id), class: 'btn'%>
+        <%= link_to "Reject", friendships_reject_path(:user => user.id), class: 'btn-reject'%>
       <% elsif current_user.friend?(user) %>
       Friends
       <% else  %>
