@@ -37,6 +37,11 @@ class User < ApplicationRecord
     friendship.confirmed = true
     friendship.save
   end
+
+  def reject_friend(friendship)
+    friendship.each(&:destroy)
+  end
+
   # rubocop:enable Lint/ShadowingOuterLocalVariable
 
   def friend?(user)

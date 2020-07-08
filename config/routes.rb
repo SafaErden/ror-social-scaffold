@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :friendships do
     get 'friendship_request'
     get 'confirm'
+    get 'reject'
   end
 
   resources :posts, only: [:index, :create] do

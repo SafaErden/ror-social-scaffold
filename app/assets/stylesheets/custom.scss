@@ -347,3 +347,43 @@ form {
     width: 50%;
   }
 }
+
+.btn {
+  border: 2px solid #689f38;
+  color: #8bc34a;
+  font-weight: 700;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.btn-reject {
+  border: 2px solid #9f3838;
+  color: #be2410;
+  font-weight: 700;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.pending {
+  color: #c3584a;
+  font-weight: 700;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.confirmed {
+  color: #4a82c3;
+  font-weight: 700;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.data {
+  font-size: 15px;
+  color: #4a82c3;
+}
+
+.likes,
+.comments {
+  font-size: 10px;
+}
